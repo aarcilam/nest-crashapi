@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MovimientoModule } from './movimiento/movimiento.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Movimiento } from './movimiento/entities/movimiento.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'AArcila',
       password: '',
       database: 'nestjs',
-      entities: [],
+      entities: [Movimiento],
       synchronize: true,
       socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
     }),
