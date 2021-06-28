@@ -16,7 +16,7 @@ import { Movimiento } from './movimiento/entities/movimiento.entity';
       password: '415b4b2e',
       database: 'heroku_cc6334dc3cf4295',
       entities: [Movimiento],
-      synchronize: false,
+      synchronize: true,
     }),
     // TypeOrmModule.forRoot({
     //   type: 'mysql',

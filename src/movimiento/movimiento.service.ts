@@ -12,7 +12,7 @@ export class MovimientoService {
     private movimientosRepository: Repository<Movimiento>,
   ) {}
   create(createMovimientoDto: CreateMovimientoDto) {
-    return 'This action adds a new movimiento';
+    return this.movimientosRepository.save(createMovimientoDto);
   }
 
   findAll() {
@@ -20,14 +20,18 @@ export class MovimientoService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} movimiento`;
+    return this.movimientosRepository.findOneOrFail(id);
   }
 
-  update(id: number, updateMovimientoDto: UpdateMovimientoDto) {
-    return `This action updates a #${id} movimiento`;
+  async update(id: number, updateMovimientoDto: UpdateMovimientoDto) {
+    const mov = await this.movimientosRepository.update(
+      id,
+      updateMovimientoDto,
+    );
+    return mov;
   }
 
   remove(id: number) {
-    return `This action removes a #${id} movimiento`;
+    return this.movimientosRepository.delete(id);
   }
 }
